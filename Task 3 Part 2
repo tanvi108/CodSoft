@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class ATM {
+    private BankAccount account;
+
+    // Constructor to initialize the ATM with a bank account
+    public ATM(BankAccount account) {
+        this.account = account;
+    }
+
+    // Method to display the ATM menu and handle user input
+    public void displayMenu() {
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            System.out.println("\nWelcome to the ATM!");
+            System.out.println("1. Check Balance");
+            System.out.println("2. Deposit");
+            System.out.println("3. Withdraw");
+            System.out.println("4. Exit");
+            System.out.print("Please choose an option: ");
+
+            int choice = scanner.nextInt();
+
+            if (choice == 1) {
+                checkBalance();
+            } else if (choice == 2) {
+                deposit(scanner);
+            } else if (choice == 3) {
+                withdraw(scanner);
+            } else if (choice == 4) {
+                System.out.println("Thank you for using the ATM. Goodbye!");
+                scanner.close();
+                return;
+            } else {
+                System.out.println("Invalid option. Please try again.");
+            }
+        }
+    }
+
+    // Method to check and display the account balance
+    private void checkBalance() {
+        System.out.printf("Your current balance is: $%.2f%n", account.getBalance());
+    }
+
+    // Method to handle deposits
+    private void deposit(Scanner scanner) {
+        System.out.print("Enter deposit amount: $");
+        double amount = scanner.nextDouble();
+        account.deposit(amount);
+        System.out.printf("Successfully deposited $%.2f. Your new balance is $%.2f%n", amount, account.getBalance());
+    }
+
+    // Method to handle withdrawals
+    private void withdraw(Scanner scanner) {
+        System.out.print("Enter withdrawal amount: $");
+        double amount = scanner.nextDouble();
+        if (account.withdraw(amount)) {
+            System.out.printf("Successfully withdrew $%.2f. Your new balance is $%.2f%n", amount, account.getBalance());
+        } else {
+            System.out.println("Insufficient balance for this withdrawal.");
+        }
+    }
+
+    // Main method to create an account and start the ATM interface
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(1000);  // Initial balance set to $1000
+        ATM atm = new ATM(account);
+        atm.displayMenu();
+    }
+}
