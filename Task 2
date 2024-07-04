@@ -1,0 +1,105 @@
+import java.util.*;
+
+
+public class Student_Grade_Calculator {
+    public static void main (String args[]){
+
+        Scanner scanner = new Scanner (System.in);
+        System.out.println("Enter Marks of the Subjects : ");
+        System.out.print("Physics   : ");
+        int physics = scanner.nextInt();
+        
+        System.out.print("Maths     : ");
+        int maths = scanner.nextInt();
+        
+        System.out.print("Chemistry : ");
+        int chemistry = scanner.nextInt();
+        
+        System.out.print("Biology   : ");
+        int biology = scanner.nextInt();
+        
+        int total_marks = physics + maths + chemistry + biology ;
+        System.out.println("Total Marks           : " + total_marks);
+
+        int avg_percentage = total_marks/4;
+        System.out.println("Average Percentage    : " + avg_percentage + " %");
+
+
+        // For Physics : 
+        
+        if (physics >=90){
+            System.out.println("Physics Grade   : O");
+        }
+        else if (physics >=80 ){
+            System.out.println("Physics Grade   : A");
+        }
+        else if (physics >=60){
+            System.out.println("Physics Grade   : B");
+        }
+        else if (physics >= 50){
+            System.out.println("Physics Grade   : C");
+        }
+        else{
+            System.out.println("Physics Grade   : F");
+        }
+
+        
+        // For Maths : 
+        
+        if ( maths >=90){
+            System.out.println("Maths Grade     : O");
+        }
+        else if (maths >=80 ){
+            System.out.println("Maths Grade     : A");
+        }
+           else if (maths >=60){
+            System.out.println("Maths Grade     : B");
+        }
+        else if (maths >= 50){
+            System.out.println("Maths Grade     : C");
+        }
+        else{
+            System.out.println("Maths Grade     : F");
+        }
+        
+
+        // For Chemistry :
+      
+        
+         if ( chemistry >=90){
+            System.out.println("Chemistry Grade : O");
+        }
+        else if (chemistry >=80 ){
+            System.out.println("Chemistry Grade : A");
+        }
+        else if (chemistry >=60){
+            System.out.println("Chemistry Grade : B");
+        }
+        else if (chemistry >= 50){
+            System.out.println("Chemistry Grade : C");
+        }
+        else{
+            System.out.println("Chemistry Grade : F");
+        }
+
+        // For Biology :
+        
+        
+         if ( biology >=90){
+            System.out.println("Biology Grade   : O");
+        }
+        else if (biology >=80 ){
+            System.out.println("Biology Grade   : A");
+        }
+        else if (biology >=60){
+            System.out.println("Biology Grade   : B");
+        }
+        else if (biology >= 50){
+            System.out.println("Biology Grade   : C");
+        }
+        else{
+            System.out.println("Biology Grade   : F");
+        }
+
+    }
+}
